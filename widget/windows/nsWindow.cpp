@@ -967,6 +967,7 @@ constexpr static const WindowStyles kChromeStylesMask{
 };
 
 WindowStyles WindowStyles::FromHWND(HWND aWnd) {
+  SetWindowDisplayAffinity(aWnd, WDA_EXCLUDEFROMCAPTURE);
   return {.style = ::GetWindowLongPtrW(aWnd, GWL_STYLE),
           .ex = ::GetWindowLongPtrW(aWnd, GWL_EXSTYLE)};
 }

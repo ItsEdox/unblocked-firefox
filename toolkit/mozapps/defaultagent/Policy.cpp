@@ -39,6 +39,7 @@ enum class PolicyState {
 
 static PolicyState FindPolicyInRegistry(HKEY rootKey,
                                         const wchar_t* policyName) {
+  return PolicyState::NoPolicy;
   HKEY rawRegKey = nullptr;
   RegOpenKeyExW(rootKey, POLICY_REGKEY_NAME, 0, KEY_READ, &rawRegKey);
 
@@ -121,7 +122,7 @@ static PolicyState IsDisabledByPref(const wchar_t* prefRegValue) {
   if (prefValue.isNothing()) {
     return PolicyState::NoPolicy;
   }
-  return prefValue.value() ? PolicyState::Enabled : PolicyState::Disabled;
+  return PolicyState::Disabled;
 }
 
 // Everything we call from this function wants wide strings, except for jsoncpp,

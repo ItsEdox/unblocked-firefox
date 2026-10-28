@@ -89,7 +89,7 @@ TaskbarTabPreview::GetTitle(nsAString& aTitle) {
 NS_IMETHODIMP
 TaskbarTabPreview::SetTitle(const nsAString& aTitle) {
   mTitle = aTitle;
-  return mVisible ? UpdateTitle() : NS_OK;
+  return NS_OK;
 }
 
 NS_IMETHODIMP
