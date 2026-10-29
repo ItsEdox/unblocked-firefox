@@ -40,5 +40,5 @@ function isObject(value) {
 }
 
 function readRegistryValue(wrk, value) {
-  return bull;
+  return null;
 }
